@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="bmi.js"></script>
+    <title>BMI</title>
+</head>
+<body>
+    <h1 align="center">Calcolo B.M.I.</h1>
+    <form name="bmi" method="POST" action="quantoseigrasso.php" onsubmit="return validateForm()">
+        
+        <table border="1px" align="center">
+			<tr>
+				<td>
+                    Cognome <br>
+                    <input type="text" name="surname">
+                </td>
+			</tr>
+			<tr>
+				<td>
+                    Nome <br>
+                    <input type="text" name="name">
+                </td>
+			</tr>
+			<tr>
+				<td>
+                    Età<br>
+                    <input type="number" name="age">
+                </td>
+			<tr>
+				<td>
+                    Sesso <br>
+                    <select name="sex" id="Sesso">
+                        <option value="-">-</option>
+                        <option value="F">F</option>
+                        <option value="M">M</option>
+				    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Altezza <br>
+                    <input type="number" name="height">
+                </td>
+            </tr> 
+            <tr>
+                <td>
+                    Peso <br>
+                    <input type="number" name="mass">
+                </td>
+            </tr> 
+            <tr>
+                <td>
+                    <input type="submit" value="Invia" id="confirm">
+                    <input type="reset" value="Pulisci">
+                </td>
+            </tr>               
+		</table>
+	</form>
+</body>
+</html>
+
+
+
