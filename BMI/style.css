@@ -1,13 +1,26 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 table {
-    border-collapse:collapse;
-    }
-    td, th {
-    border:1px solid #ddd;
-    padding:8px;
-    }
+    border-radius: 10px;
+    font-size: 24px;
+    border-collapse: collapse;
+    border: 10px soldi black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+td, th {
+
+    width: 400px;
+    border: 1px solid #ddd;
+    padding: 8px;
+}
     
-input
+input[type = "text"], input[type = "number"]
 {
+    width: 400px;
+    height: 20px;
     background-color: lightgray;
     border: none;
     border-radius: 5px;
