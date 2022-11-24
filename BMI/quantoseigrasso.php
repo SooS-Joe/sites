@@ -8,11 +8,17 @@
 </head>
 <body>
     <p>Buongiorno 
-        <?php 
-            if($_POST['sex'] == "M") echo "sig.";
-            else if($_POST['sex'] == "F") echo "sig.ra";
-            echo " $_POST[name] $_POST[surname] il tuo ";
+        <?php
+            $image = "man1.png";
+            $bmi = $_POST['mass']/($_POST['height']*$_POST['height']); 
+            if($_POST['sex'] == "M") 
+                echo "sig.";
+            else if($_POST['sex'] == "F") 
+                echo "sig.ra";
+            echo " $_POST[name] $_POST[surname] il tuo BMI è: $bmi";
+
         ?> 
     </p>
+    <img src=<?php echo "\"$image\"";?> alt="bmi image">
 </body>
 </html>

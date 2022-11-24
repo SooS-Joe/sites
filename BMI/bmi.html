@@ -12,19 +12,19 @@
     <h1 align="center">Calcolo B.M.I.</h1>
     <form name="bmi" method="POST" action="quantoseigrasso.php" onsubmit="return validateForm()">
         <!-- TODO: rifare tutto con le div -->
-        <table border="1px" align="center">
-			<tr>
-				<td>
-                    Cognome <br>
-                    <input type="text" name="surname">
-                </td>
-			</tr>
-			<tr>
-				<td>
+        <table>
+            <tr>
+                <td>
                     Nome <br>
                     <input type="text" name="name">
                 </td>
 			</tr>
+            <tr>
+                <td>
+                    Cognome <br>
+                    <input required type="text" name="surname">
+                </td>
+            </tr>
 			<tr>
 				<td>
                     Età<br>
@@ -33,8 +33,8 @@
 			<tr>
 				<td>
                     Sesso <br>
-                    <select name="sex" id="Sesso">
-                        <option value="-">-</option>
+                    <select name="sex" required id="Sesso">
+                        <option value="" disabled selected>-</option>
                         <option value="F">F</option>
                         <option value="M">M</option>
 				    </select>
@@ -42,14 +42,14 @@
             </tr>
             <tr>
                 <td>
-                    Altezza <br>
-                    <input type="number" name="height">
+                    Altezza (Metri) <br>
+                    <input type="number" step="0.01" name="height">
                 </td>
             </tr> 
             <tr>
                 <td>
-                    Peso <br>
-                    <input type="number" name="mass">
+                    Peso (Kilogrammi)<br>
+                    <input type="number" step="0.01" name="mass">
                 </td>
             </tr> 
             <tr>
@@ -59,7 +59,8 @@
                 </td>
             </tr>               
 		</table>
-	</form>
+        <!--border 1px align center-->
+ 	</form>
 </body>
 </html>
 
