@@ -9,7 +9,8 @@
 <body>
     <p>Buongiorno 
         <?php
-            $image = "man1.png";
+            $status = "";
+            $image = "";
             $bmi = $_POST['mass']/($_POST['height']*$_POST['height']); 
             if($_POST['sex'] == "M") 
                 echo "sig.";
@@ -17,6 +18,29 @@
                 echo "sig.ra";
             echo " $_POST[name] $_POST[surname] il tuo BMI è: $bmi";
 
+            if($bmi < 16)
+            {
+                $status = "";
+                if($_POST['sex'] == "M")
+                    $image = "man1.png";
+                if($_POST['sex'] == "F")
+                    $image = "woman1.png";
+            }
+            
+            else if($bmi >= 16 && $bmi < 18.5)
+            {
+                if($_POST['sex'] == "M")
+                    $image = "man1.png";
+                if($_POST['sex'] == "F")
+                    $image = "woman1.png";
+            }
+            elseif ($bmi >= 18.5 && $bmi <= 25) 
+            {
+                if($_POST['sex'] == "M")
+                    $image = "man1.png";
+                if($_POST['sex'] == "F")
+                    $image = "woman1.png";
+            }
         ?> 
     </p>
     <img src=<?php echo "\"$image\"";?> alt="bmi image">
