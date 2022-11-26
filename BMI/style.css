@@ -3,50 +3,95 @@ body {
     background-color: rgb(30, 30, 30);
 }
 
+h1{
+    text-align: center;
+    color:rgb(62, 62, 62);
+    font-size: 72px;
+}
+
 table {
     background-color: rgb(62, 62, 62);
     margin-left: auto;
     margin-right: auto;
-    border-radius: 10px;
-    font-size: 24px;
+    border-radius: 25px;
+    font-size: 28px;
     border-collapse: collapse;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 td, th {
-
-    width: 300px;
-    /* border: 1px solid #ddd; */
+    align-content: center;
+    width: fit-content;
     border-collapse: collapse;
     border-radius: 10px;
     padding: 8px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.textfield{
+    display: inline-block;
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+input[type = "text"]
+{
+    font-size: 22px;
+    color:rgb(160, 160, 160);
+    width: 300px;
+    height: 40px;
+    border-radius: 15px;
+    border: none;
+    background-color: rgb(30, 30, 30);
+}
+
+input#age, select#sex, input#height, input#mass, input[type = "submit"], input[type = "reset"]
+{
+    font-size: 22px;
+    color:rgb(160, 160, 160);
+    width: 100px;
+    height: 40px;
+    border-radius: 15px;
+    border: none;
+    background-color: rgb(30, 30, 30);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  border-radius: 5px;
+  background-color: rgb(211, 211, 211);
+  margin: 0;
+}
+
+ul{
+    padding: 0;
+    list-style-type: none;
+}
+
+ul li{
+    display: inline-block;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#resutlContainer {
+    width: 500px;
+    height: fit-content;
+
+    background-color: rgb(62, 62, 62);
+    color: rgb(160, 160, 160);
+    font-size: 28px;
     
-input[type = "text"], input[type = "number"]
-{
-    width: 400px;
-    height: 20px;
-    background-color: rgb(30, 30, 30);
-    border: none;
-    border-radius: 5px;
+    padding: 0px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    border-collapse: collapse;
+    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
-input[type = "submit"], input[type = "reset"]
-{
-    color:rgb(255, 255, 255);
-    width: 50px;
-    height: 25px;
-    background-color: rgb(30, 30, 30);
-    border: none;
-    border-radius: 5px;
-}
-
-select
-{
-    color:rgb(255, 255, 255);
-    width: 50px;
-    height: 25px;
-    background-color: rgb(30, 30, 30);
-    border: none;
-    border-radius: 5px;
+#resutlContainer img {
+object-fit: scale-down;
 }
