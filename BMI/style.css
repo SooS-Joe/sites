@@ -14,7 +14,7 @@ table {
     margin-left: auto;
     margin-right: auto;
     border-radius: 25px;
-    font-size: 28px;
+    font-size: 24px;
     border-collapse: collapse;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -49,7 +49,7 @@ input[type = "text"]
 
 input#age, select#sex, input#height, input#mass, input[type = "submit"], input[type = "reset"]
 {
-    font-size: 22px;
+    font-size: 20px;
     color:rgb(160, 160, 160);
     width: 100px;
     height: 40px;
@@ -77,14 +77,12 @@ ul li{
 }
 
 #resutlContainer {
-    width: 500px;
+    width: fit-content;
     height: fit-content;
 
     background-color: rgb(62, 62, 62);
     color: rgb(160, 160, 160);
     font-size: 28px;
-    
-    padding: 0px 20px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
@@ -92,6 +90,16 @@ ul li{
     
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 #resutlContainer img {
-object-fit: scale-down;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: scale-down;
+    padding: 10px 25px;
+    
+}
+
+#resutlContainer p {
+    padding: 10px 25px;
 }
