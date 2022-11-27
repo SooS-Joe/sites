@@ -58,12 +58,7 @@ input#age, select#sex, input#height, input#mass, input[type = "submit"], input[t
     background-color: rgb(30, 30, 30);
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  border-radius: 5px;
-  background-color: rgb(211, 211, 211);
-  margin: 0;
-}
+
 
 ul{
     padding: 0;
@@ -85,6 +80,7 @@ ul li{
     font-size: 28px;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 10px;
     border-radius: 10px;
     border-collapse: collapse;
     
@@ -96,10 +92,31 @@ ul li{
     margin-left: auto;
     margin-right: auto;
     object-fit: scale-down;
-    padding: 10px 25px;
-    
+    padding: 10px 25px;  
 }
 
 #resutlContainer p {
     padding: 10px 25px;
+}
+
+#slider {
+    display: block;
+    width: 450px;
+    height: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 5px;
+    border-radius: 5px;
+    background-color: rgb(160, 160, 160);
+}
+
+#pointer {
+    position: relative;
+    bottom: 10px;
+    right: 10px;
+}
+
+path {
+    fill: white;
+    scale: 20%;
 }

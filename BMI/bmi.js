@@ -1,18 +1,19 @@
-function validateForm() 
-{
-    if (form["age"].value <= 0 || form["age"].value > 120)
+var pointer = document.getElementById('pointer');
+let bmi = parseFloat(document.getElementById('bmi').innerHTML);
+let id = null; 
+console.log(typeof(bmi));
+
+window.addEventListener('DOMContentLoaded', ()=>{
+    let id = setInterval(frame, 5); 
+})
+
+function frame() {
+    let pos = 0;
+    if (pos == 450) 
+    clearInterval(id);
+    else 
     {
-        alert("Devi inserire un'età valida!");
-        return false;
-    }
-    if (form["height"].value > 0)
-    {
-        alert("Devi inserire un'altezza valida!");
-        return false;
-    }
-    if (form["mass"].value > 0) 
-    {
-        alert("Devi inserire un peso valido!");
-        return false;
+        pos++;
+        pointer.style.left = pos + 'px';
     }
 }
