@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css" type="text/css">
     <script defer src="bmi.js"></script>
     <title>Risultato BMI</title>
@@ -41,6 +42,7 @@
                 <path d="M74.905,75.035c0-11.811-18.276-40.142-23.516-48.022c-0.661-0.994-2.119-0.996-2.782-0.003  c-5.263,7.876-23.633,36.212-23.633,48.025C24.974,88.823,36.151,100,49.939,100S74.905,88.823,74.905,75.035z" />
             </svg>
         </div>
+        <p id="state">Il tuo stato è: </p>
     </div>
 </body>
 </html>
