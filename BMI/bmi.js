@@ -25,9 +25,8 @@ let extremelyobeseLimit = underweightLimit*5;
  * quindi 13 sta a 0 px come 40 sta alla lunghezza totale quindi 450px
  */
 
-document.addEventListener('DOMContentLoaded', script());
-
-function script() {
+// document.addEventListener('DOMContentLoaded', script()); 
+const script = () => {
     var currentPoint = 0;
     let timer = setInterval(() => {
         if (currentPoint >= finalPoint)
@@ -49,8 +48,7 @@ function script() {
       }, 10);
 }
 
-function currentState(currentPoint)
-{
+const currentState = (currentPoint) => {
     if (currentPoint <= underweightLimit)
         return {color: '#88B7D8', status: 'Sottopeso'};
     else if (currentPoint <= normalLimit)
