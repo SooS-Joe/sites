@@ -1,0 +1,52 @@
+body {
+    padding: 0;
+    border: 0;
+    margin: 0;   
+    background-color: rgb(36, 36, 36);
+}
+
+.titolo {
+    font-family: sans-serif;
+    font-size: 50px;
+    color: rgb(1, 1, 1);
+    background-color: rgb(200, 1, 1);
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+.sottotitolo {
+    font-family: "Cambria";
+    font-size: 20px;
+    color: white;
+    background-color: black;
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+a:not(hover):visited {
+    text-decoration: none;
+    color: rgb(255, 166, 0);
+}
+
+a:visited {
+    text-decoration: none;
+    color: rgb(255, 50, 0);
+}
+
+.navbar {
+    text-align: left;
+}
+
+.navbar ul li {
+    display: inline;
+    border: 10px;
+    padding: 33px;
+}

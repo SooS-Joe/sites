@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+    font-family: 'Roboto', sans-serif;
+    --mainbgcolor: rgb(217, 203, 231);
+    --secondarybgcolor: rgb(235, 198, 149);
+    --mainbordercolor: rgb(137, 96, 177);
+    --secondarybordercolor: rgb(230, 168, 86);
+    --bodybgcolor: rgb(36, 36, 36);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: var(--maintextcolor);
+}
+
+h1 {
+    margin: 0;
+    display: block;
+    padding: 10px;
+    border: 0;
+    font-size: 72px;
+    background-color: var(--mainbgcolor);
+    text-align: center;
+    border-bottom: 4px solid var(--mainbordercolor);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h2 {
+
+    font-size: 48px;
+}
+
+p {
+    margin: 0;
+    border: 0;
+    font-size: 36px;
+}
+
+form {
+    text-align: center;
+}
+
+select, input[type="text"] {
+    width: 550px;
+    margin: 20px;
+    padding: 10px;
+    font-size: 36px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: none;
+}
+
+button[type = "submit"] {
+    width: fit-content;
+    padding: 20px;
+    font-size: 36px;
+    border-radius: 25px;
+    background-color: var(--mainbgcolor);
+    color: var(--maintextcolor);
+    border-style: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: none;
+}
+
+button[type = "submit"]:hover {
+    background-color: var(--mainbordercolor);
+}
+
+div.data {
+    display: flex;
+}
+
+div.tabella {
+    margin: 0;
+    border: 0;
+    width: 50%;
+    margin: 20px;
+    margin-right: auto;
+}
+
+div.tabella>table {
+    margin-left: auto;
+    background-color: var(--secondarybgcolor);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+}
+
+div.tabella>table td, div.tabella>table th {
+    margin: 0;
+    padding: 20px;
+    font-size: 36px;
+    border-radius: 20px;
+    text-align: left;
+}
+
+div.tabella>table td:hover, div.tabella>table th:hover {
+    background-color: var(--secondarybordercolor);
+}
+
+div.grafico{
+    width: 50%;
+    height: fit-content;
+    margin: 20px;
+    margin-right: auto;
+}
+
+div.grafico>canvas#grafico{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 75vh;
+}

@@ -1,5 +1,4 @@
 <?php
-
     function connessione($hostname, $username, $password, $database)
     {
         $connect = new mysqli($hostname, $username, $password, $database);

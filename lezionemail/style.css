@@ -90,7 +90,9 @@ td, th {
     padding-right: 15px;
 }
 
-input[type = "text"]
+input[type = "text"],
+input[type = "email"],
+textarea
 {
     font-size: 22px;
     color:rgb(160, 160, 160);
@@ -101,7 +103,7 @@ input[type = "text"]
     background-color: rgb(30, 30, 30);
 }
 
-input[type = "number"], input[type = "submit"], input[type = "reset"]
+input[type = "number"], button[type = "submit"], input[type = "reset"]
 {
     font-size: 20px;
     color:rgb(160, 160, 160);

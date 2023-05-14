@@ -2,16 +2,6 @@ var pointer = document.getElementById('pointer');
 var path = document.querySelector('path');
 var state = document.getElementById('state');
 
-let bmi = parseFloat(document.getElementById('bmi').innerHTML)
-let finalPoint = (450/27)*(bmi-15);
-if (finalPoint > 450) {
-    finalPoint = 440;
-}
-let underweightLimit = 450/5;
-let normalLimit = underweightLimit*2;
-let overweightLimit = underweightLimit*3;
-let obeseLimit = underweightLimit*4;
-let extremelyobeseLimit = underweightLimit*5;
 /**
  * il primo intervallo è dai 18,5 in giù
  * 2° 18,5-25 6,5
@@ -20,13 +10,32 @@ let extremelyobeseLimit = underweightLimit*5;
  * 5° >35 
  * per far funzionare la cosa dobbiamo dare un itervallo di 5 a tutti i stati
  * quindi ci sono 5 stati quindi sono 25 parti in totale
- * per fare questo il minimo bmi visualizzabile è 13
+ * però in realtà il gap normopeso vale 6,5 parti
+ * quindi io per normalizzare schematizzo così
+ * 1° 15-20 5
+ * 2° 20-25 5
+ * 3° 25-30 5
+ * 4° 30-35 5
+ * 5° 35-40 5
+ * per fare questo il minimo bmi visualizzabile è 15
  * il bmi maggiore sarà 40
- * quindi 13 sta a 0 px come 40 sta alla lunghezza totale quindi 450px
+ * quindi 15 sta a 0 px come 40 sta alla lunghezza totale quindi 450px
+ * TODO: far variare il colore e lo stato del cursore a seconda del bmi e non a seconda della posizione
  */
+let bmi = parseFloat(document.getElementById('bmi').innerHTML)
+let finalPoint = (450/25)*(bmi-15);
+if (finalPoint > 450) {
+    finalPoint = 440;
+}
+let underweightLimit = 450/5;
+let normalLimit = underweightLimit*2;
+let overweightLimit = underweightLimit*3;
+let obeseLimit = underweightLimit*4;
+let extremelyobeseLimit = underweightLimit*5;
 
-// document.addEventListener('DOMContentLoaded', script()); 
-const script = () => {
+document.addEventListener('DOMContentLoaded', script());
+
+function script() {
     var currentPoint = 0;
     let timer = setInterval(() => {
         if (currentPoint >= finalPoint)
@@ -48,7 +57,8 @@ const script = () => {
       }, 10);
 }
 
-const currentState = (currentPoint) => {
+function currentState(currentPoint)
+{
     if (currentPoint <= underweightLimit)
         return {color: '#88B7D8', status: 'Sottopeso'};
     else if (currentPoint <= normalLimit)

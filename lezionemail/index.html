@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/052423e961.js" crossorigin="anonymous"></script>
+    <title>Invio Mail</title>
+</head>
+<body>
+    <h1>Nuovo Messaggio</h1>
+    <form action="mail.php" method="post">
+        <table>
+            <tr>
+                <td class="field">
+                    <input type="email" name="EmailMittente" placeholder="Email mittente">
+                </td>
+            </tr>
+            <tr>
+                <td class="field">
+                    <input type="email" name="EmailDestinatario" placeholder="EmailDestinatario">
+                </td>
+            </tr>
+            <tr>
+                <td class="field">         
+                    <input type="text" name="Oggetto" placeholder="Oggetto">
+                </td>
+            </tr>
+            <tr>
+                <td class="field">         
+                    <textarea name="Messaggio" placeholder="Messaggio"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="field">
+                    <button type="submit">
+                        <i class="fa-solid fa-paper-plane-top"></i> Invia
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -10,7 +10,7 @@
     <title>Inserimento</title>
 </head>
 <body>
-    <h1><a class="title" href="Index.html">Deposito telefoni</a></h1>
+    <h1><a class="title" href="/Telefoni/">Deposito telefoni</a></h1>
     <h2>Registrazione</h2>
     <form name="nuovotel" method="POST" action="inserisci.php">
         <!-- TODO: rifare tutto con le div -->
@@ -46,14 +46,30 @@
                 </td>
             </tr>               
 		</table>
-        <?php
-            require "connetti.php";
-            $connect = connessione("giosuedavidetieri.altervista.org", "root", "", "my_giosuedavidetieri");
-            $commend = "INSERT INTO Telefoni(Marca, Modello, Prezzo) VALUES ('$_POST[brand]', '$_POST[model]', '$_POST[price]')";
-            $risultato = $connect->query($command);
-
-            
-        ?>
+            <?php
+                if(!empty($_POST))
+                {
+                    echo "<div class='result'>";
+                    require "connetti.php";
+                    $connect = connessione("localhost", "giosuedavidetieri", "", "my_giosuedavidetieri");
+                    $command = "INSERT INTO Telefoni(Marca, Modello, Prezzo) VALUES ('$_POST[brand]', '$_POST[model]', '$_POST[price]')";
+                    if(!$connect->query($command))
+                    echo("Inserimento non riuscito:" . $connect->error);
+                    else
+                    {
+                        $result = $connect->query("SELECT * FROM Telefoni WHERE Marca = '$_POST[brand]' AND Modello = '$_POST[model]' AND Prezzo = '$_POST[price]'");
+                        if(!$result)
+                        echo("Inserimento non riuscito:" . $result->error);
+                        else
+                        {
+                            $raw = $result->fetch_assoc();
+                            echo("Il telefono ".$raw['Marca']." ".$raw['Modello']." di costo ".$raw['Prezzo']." è stato aggiunto correttamente.");
+                        }
+                    }          
+                    echo "</div>";
+                }
+            ?>
+        
         <!--border 1px align center-->
  	</form>
 </body>

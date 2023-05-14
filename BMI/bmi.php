@@ -9,7 +9,7 @@
     <script defer src="bmi.js"></script>
     <title>Risultato BMI</title>
 </head>
-<body onload="script()">
+<body>
     <h1>Risultato</h1>
     <div id="resutlContainer">
         <div id="bmi" hidden>
