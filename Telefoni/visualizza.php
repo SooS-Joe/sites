@@ -20,14 +20,13 @@
                 <th>Modello</th>
                 <th>Prezzo</th>
             </tr>
-            
-			<input type="text" name="model" placeholder="" required>
-			<input type="text" name="price" placeholder="" required>
             <?php
                 include "connetti.php";
-                $connect = connessione("localhost", "giosuedavidetieri", "", "my_giosuedavidetieri");
+
+                $connect = connessione("localhost", "giosuedavidetieri", " ", "my_giosuedavidetieri");
                 $select = "SELECT * FROM Telefoni";
                 $result = $connect->query($select);
+                $check = true;
                 $num = 0;
 
                 if (!$result)
@@ -39,14 +38,22 @@
                 while($raw=$result->fetch_assoc())
                 {
                     echo "<tr>";
+					if(isset($_POST["CM".$raw["IDTelefono"]]))
+					{
+						$check = $connect->query("UPDATE Telefoni SET Marca = '$_POST[brand]', Modello = '$_POST[model]', Prezzo = $_POST[price] WHERE IDTelefono= $raw[IDTelefono]");
+						if ($check) 
+                        {
+                            header("Refresh:0");
+                        }
+					}
 					if(isset($_POST["M".$raw["IDTelefono"]]))
 					{
 						echo "<td>".$raw["IDTelefono"]."</td>";
 						echo "<td><input type='text' name='brand' value='".$raw['Marca']."' required></td>";
 						echo "<td><input type='text' name='model' value='".$raw['Modello']."' required></td>";
-						echo "<td><input type='text' name=price value='".$raw['Prezzo']."' required></td>";
-						echo "<td>".$raw["Prezzo"]."</td>";
+						echo "<td><input type='number' name=price value='".$raw['Prezzo']."' required></td>";
 						echo "<td><input type='submit' value='Conferma' name='CM".$raw["IDTelefono"]."'></td>";
+						echo "<td><input type='submit' value='Elimina' name='".$raw["IDTelefono"]."' disabled></td>";
 					}
 					else
 					{
@@ -61,8 +68,11 @@
 						}
 						else if(isset($_POST["C".$raw["IDTelefono"]]))
 						{
-							$connect->query("DELETE FROM Telefoni WHERE IDTelefono=$raw[IDTelefono]");
-							header("Refresh:0");
+							$check = $connect->query("DELETE FROM Telefoni WHERE IDTelefono=$raw[IDTelefono]");
+                            if ($check) 
+                            {
+                                header("Refresh:0");
+                            }
 						}
 						else
 						{
@@ -72,11 +82,18 @@
                     echo "</tr>";
                     $num++;
                 }
-
-                $result->free();
-                $connect->close();
             ?>
         </table>
+        <?php
+            if(!$check)
+            {
+                echo "<div class='result'>";
+                    echo("Errore:" . $result->error);       
+                echo "</div>";
+            }
+            $result->free();
+            $connect->close();
+        ?>
     </form>
 </body>
 </html>

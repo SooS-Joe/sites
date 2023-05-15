@@ -54,7 +54,7 @@
                     $connect = connessione("localhost", "giosuedavidetieri", "", "my_giosuedavidetieri");
                     $command = "INSERT INTO Telefoni(Marca, Modello, Prezzo) VALUES ('$_POST[brand]', '$_POST[model]', '$_POST[price]')";
                     if(!$connect->query($command))
-                    echo("Inserimento non riuscito:" . $connect->error);
+                        echo("Inserimento non riuscito:" . $connect->error);
                     else
                     {
                         $result = $connect->query("SELECT * FROM Telefoni WHERE Marca = '$_POST[brand]' AND Modello = '$_POST[model]' AND Prezzo = '$_POST[price]'");
@@ -68,6 +68,8 @@
                     }          
                     echo "</div>";
                 }
+                $result->free();
+                $connect->close();
             ?>
         
         <!--border 1px align center-->

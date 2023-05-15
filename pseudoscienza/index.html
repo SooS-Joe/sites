@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="script.js"></script>
+    <script src="https://kit.fontawesome.com/052423e961.js" crossorigin="anonymous"></script>
+    <title>La pseudoscienza delle razze</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+
+        :root {
+            --s1color: #DC4B6D;
+            --s2color: #f5be28;
+            --s3color: #8AC926;
+            --s4color: #1982C4;
+            --s5color: #6919C4;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            border: 0;
+            background-color: black;
+            color: white;
+        }
+
+        h1 {
+            font-size: 72px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 48px;
+        }
+
+        p {
+            font-size: 36px;
+        }
+
+        nav.sections>ul {
+            margin: 0;
+            text-align: center;
+            box-shadow: 0 0px 8px 5px rgba(0, 0, 0, 0.4), 0 0px 20px 5px rgba(0, 0, 0, 0.4);
+            background-color: rgb(25, 25, 25);
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        nav.sections>ul>li {
+            display: inline-block;
+            padding: 20px;
+            font-size: 24px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        nav.sections>ul>li:hover {
+            color: white !important;
+            transition-duration: 0.5s;
+            background-color: rgb(0, 0, 0);
+        }
+
+
+        nav.controls>ul {
+
+            position: fixed;
+            top: 50%;
+            margin-top: auto;
+            right: -40px;
+            padding: 0;
+            list-style-type: none;
+            width: fit-content;
+            height: fit-content;
+            transform: translateY(-50%);
+            text-align: center;
+            box-shadow: 0 0px 8px 5px rgba(0, 0, 0, 0.4), 0 0px 20px 5px rgba(0, 0, 0, 0.4);
+            background-color: rgb(25, 25, 25);
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            z-index: 10;
+            transition-duration: 0.2s;
+        }
+
+        nav.controls>ul:hover{
+            right: 0;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-in;
+        }
+        
+        nav.controls>ul>li {
+            display: block;
+            padding: 20px;
+            font-size: 2.5vh;
+            text-decoration: none;
+            cursor: pointer;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        nav.controls>ul>li:hover {
+            color: white !important;
+            transition-duration: 0.5s;
+            background-color: rgb(0, 0, 0);
+        }
+        
+        div.slide {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            min-height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        div.slide>* {
+            margin: 0;
+        }
+
+        div.slide ul {
+            display: block;
+            position: static;
+            width: 75vw;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+
+        }
+
+        div.slide>ul>li {
+            display: block;
+            text-decoration: none;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            transition: 400ms;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        div.slide>ul div.slide>ul>li:hover {
+            transform: scale(1.1, 1.1);
+        }
+
+        div.slide>ul:hover > .li:not(:hover) {
+            filter: blur(10px);
+            transform: scale(0.9, 0.9);
+        }
+
+        div.races{
+            padding-top: 3vh;
+            display: flex;
+            gap: 5vw;
+        }
+
+        .races .card {
+            background-color: rgb(30, 30, 30);
+            color: var(--s2color);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            height: 75vh;
+            width: 25vw;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            transition: 400ms;
+            z-index: 2;
+        }
+
+        .races .card p.tip {
+            font-size: 4vh !important; 
+            font-weight: 700;
+            padding-left: 1vw;
+            padding-right: 1vw;
+        }
+
+        .races .card p.second-text {
+            font-size: 3vh !important;
+            padding-left: 1vw;
+            padding-right: 1vw;
+        }
+
+        .races .card:hover {
+            transform: scale(1.1, 1.1);
+        }
+
+        .races:hover > .card:not(:hover) {
+            filter: blur(10px);
+            transform: scale(0.9, 0.9);
+        }
+
+        div.slide h2 {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 40px;
+        }
+
+        div.slide h3 {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 36px;
+        }
+
+        div.slide>p {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            width: 75vw;
+        }
+
+        div.slide li h3 {
+            text-align: center;
+        }
+
+        div.slide li p {
+            font-size: 24px;
+        }
+
+        section div.slide:nth-child(even) {
+            background-image: linear-gradient(to bottom, rgb(0, 0, 0) 60%, rgb(25, 25, 25));
+            
+        }
+
+        section#pseudoscienze div.slide:nth-child(odd) {
+            background-color: var(--s1color);
+        }
+
+        section#frenologia div.slide:nth-child(odd) {
+            background-color: var(--s2color);
+        }
+
+        section#storia div.slide:nth-child(odd) {
+            background-color: var(--s3color);
+        }
+
+        section#affaire div.slide:nth-child(odd) {
+            background-color: var(--s4color);
+        }
+
+        section#confutazione div.slide:nth-child(odd) {
+            background-color: var(--s5color);
+        }
+
+        section#pseudoscienze>div.slide:nth-child(2) {
+            position: relative;
+        }
+
+        section>div.slide:nth-child(1) p,
+        section>div.slide:nth-child(1) h2 {
+            text-align: center !important;
+            margin-left: 0px;
+        }
+
+        section>div.slide:nth-child(even)>p,
+        section>div.slide:nth-child(even)>h2 {
+            text-align: left;
+            margin-left: 0px;
+        }
+
+
+        section>div.slide:nth-child(odd)>p,
+        section>div.slide:nth-child(odd)>h2 {
+            text-align: right;
+            margin-right: 0px;
+        }
+
+        section#pseudoscienze>div.slide>img {
+            position: absolute;
+            right: 0;
+            object-fit: cover;
+            display: block;
+            /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+            filter: drop-shadow(0px 4px 8px #000);
+            margin: 0px;
+            overflow: visible;
+            width: 50vw;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        section#pseudoscienze>div.slide:nth-child(5) ul p {
+            text-align: center;
+        }
+
+        section#pseudoscienze>div.slide:nth-child(5) ul>li {
+            backdrop-filter: blur(20px);
+        }
+
+        footer p
+        {
+            color: rgb(160, 160, 160);
+            font-size: 20px;
+        }
+
+        @media (hover: none) {
+            nav.controls>ul
+            {
+                right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>La Pseudoscienza delle Razze</h1>
+    <nav class="controls">
+        <ul>
+            <li><i onclick="goBack()" class="fa-solid fa-angles-up"></i></li>
+            <li><i onclick="fullScreen()" class="fa-solid fa-expand"></i> </li>
+            <li><i onclick="prevSlide()" class="fa-solid fa-angle-up"></i></li>
+            <li><i onclick="nextSlide()" class="fa-solid fa-angle-down"></i></li>
+            <li><i onclick="prevSection()" class="fa-solid fa-angle-left"></i></li>
+            <li><i onclick="nextSection()" class="fa-solid fa-angle-right"></i></li>
+        </ul>
+    </nav>
+    <nav class="sections">
+        <ul>
+            <li>Pseudoscienze</li>
+            <li>Frenologia</li>
+            <li>Storia</li>
+            <li>Affair Dreyfus</li>
+            <li>Confutazione</li>
+        </ul>
+    </nav>
+    <section id="pseudoscienze">
+        <div class="slide">
+            <h2>Pseudoscienze</h2>
+            <p>Il razzismo scientifico (razzismo pseudoscientifico) è lo studio delle tecniche e delle ipotesi a
+                sostegno dell'inferiorità o superiorità razziale di alcuni gruppi umani rispetto ad altri; cercando di
+                dare fondamento scientifico ad una cosiddetta "scienza delle razze umane".</p>
+            <p>Il razzismo scientifico impiega l'antropologia (in particolare l'antropologia fisica), l'antropometria,
+                la craniometria e altre pseudo-discipline, proponendo tipologie antropologiche a sostegno della
+                classificazione delle popolazioni umane in "razze umane" fisicamente distinte e separate, nei confronti
+                delle quali si possa affermare che siano "superiori" o "inferiori".</p>
+        </div>
+        <div class="slide">
+            <h2>Carl Linneo</h2>
+            <p>Il medico ed esperto di botanica e zoologia svedese Linneo (1707-1778) modificò le basi della tassonomia
+                fondate sulla nomenclatura binomiale per la fauna e la flora ed è a tutt'oggi considerato un ricercatore
+                pionieristico nella definizione biologica della razza umana.</p>
+            <img src="img/Carl Linneo.png" alt="Carl Linneo">
+        </div>
+        <div class="slide">
+            <h2>Classificazione</h2>
+            <p>Nel suo Systema Naturae nell'edizione del 1767 <strong>etichettò quattro "varietà" di specie
+                    umane:</strong></p>
+            <ul class="races">
+                <li style="background-image: url(img/Amerindo.jpg);">
+                    <h3>
+                        l'amerindo
+                    </h3>
+                    <p>
+                        di pelle rossa, collerico ma retto, con i capelli neri diritti e spessi, testardo, zelante e
+                        spirito libero, si dipinge con linee rosse su tutto il corpo e viene governato dai costumi.
+                    </p>
+                </li>
+                <li style="background-image: url(img/Europeo.jpg);">
+                    <h3>
+                        l'europeo
+                    </h3>
+                    <p>
+                        di pelle chiara, sanguigno e bruno, con abbondanti capelli lunghi, occhi blu, gentile, acuto ed
+                        inventivo, ricoperto interamente da abiti e governato dalle leggi.
+                    </p>
+                </li>
+                <li style="background-image: url(img/Asiatico.jpg);">
+                    <h3>
+                        l'asiatico
+                    </h3>
+                    <p>
+                        di pelle color giallognola, melanconico e rigido, con i capelli neri e gli occhi scuri, severo,
+                        arrogante ed avido, ricoperto da lunghe vesti, governato dalle opinioni.
+                    </p>
+                </li>
+                <li style="background-image: url(img/Africano.jpg);">
+                    <h3>
+                        l'africano
+                    </h3>
+                    <p>
+                        di pelle nera, rilassato, capelli neri arricciati, naso piatto e labbra tumide, astuto,
+                        sdolcinato e sconsiderato, si unge la pelle di grasso, governato dalla volontà arbitraria.
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h2>Cesare Lombroso</h2>
+            <p>antropologo e sociologo italiano, nonché fondatore della psicologia criminale. </p>
+            <p>Il nucleo centrale della teoria di Lombroso, che si ispirava alla frenologia di Gall, è che i criminali
+                sono tali per nascita. Ciò sarebbe dovuto a delle particolari caratteristiche fisiche, che Lombroso
+                chiama atavismi , che condizionerebbero il comportamento dell individuo.</p>
+            <img src="img/Cesare Lombroso.png" alt="Cesare Lombroso">
+        </div>
+        <div class="slide">
+            <h2>Johann Friedrich Blumenbach</h2>
+            <p>Johann Friedrich Blumenbach è stato un antropologo, fisiologo e naturalista tedesco, autore di una
+                classificazione craniometrica delle razze umane che è stata accettata dai moderni fautori del cosiddetto
+                "razzismo scientifico".</p>
+            <p>Si laurea nel 1775 in Medicina presso l'Università di Gottinga con una tesi dal titolo De generis humani
+                varietate nativa liber ("Della naturale varietà dell'Umanità"), considerata uno dei lavori che ha
+                gettato le basi per lo sviluppo del razzismo scientifico.</p>
+            <img src="img/Blumenbach.jpg" alt="Cesare Lombroso" style="z-index: -1; left: 0; opacity: 0.5;">
+        </div>
+        <div class="slide">
+            <p>
+                Sulla base dei suoi studi "craniometrici" (ovvero basati sul cranio umano), divise l'umanità in cinque
+                "razze":
+            </p>
+            <ul class="races">
+                <li>
+                    <h3>Caucasica o "razza bianca"</h3>
+                </li>
+                <li>
+                    <h3>Americana o "razza rossa";</h3>
+                </li>
+                <li>
+                    <h3>Malese o "razza olivastra";</h3>
+                </li>
+                <li>
+                    <h3>Mongola o "razza gialla";</h3>
+                </li>
+                <li>
+                    <h3>Africana o "razza nera".</h3>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="frenologia">
+        <div class="slide">
+            <h2>Frenologia</h2>
+            <p>La frenologia è una pseudoscienza dell'Ottocento, che cerca di individuare il carattere e la personalità
+                di una persona attraverso l'osservazione dell'aspetto fisico, in particolare del cranio. Fu ideata dal
+                medico tedesco Franz Joseph Gall, che affermava che le funzioni psichiche dipendevano da determinate
+                zone del cervello. La frenologia divenne popolare in Europa e in America, dando vita alla prima società
+                frenologica a Edimburgo, seguita da molte altre in Inghilterra e in America.</p>
+        </div>
+        <div class="slide">
+            <p>La frenologia sosteneva che la conformazione del cranio di una persona potesse definire le sue qualità
+                psicologiche. Secondo Gall, il cervello umano è composto da 27 organi, o aree, che corrispondono a
+                diverse caratteristiche della personalità. La lettura del cranio veniva effettuata attraverso l'analisi
+                delle protuberanze e delle rientranze del cranio, che rappresentavano le diverse aree cerebrali. Gall
+                effettuò studi anche sul sistema nervoso, ma l'errore della frenologia fu quello di ritenere che anche
+                qualità astratte come il coraggio o la fermezza avessero una loro specifica localizzazione nel cervello.
+            </p>
+        </div>
+        <div class="slide">
+            <h3>Aree del cervello o “Organi” di Gall:</h3>
+            <div class="races">
+                <div class="card">
+                    <p class="tip">i primi dieci sono comuni all’uomo e a tutti i vertebrati:</p>
+                    <p class="second-text">l’istinto sessuale e aggressivo</p>
+                    <p class="second-text">il senso della proprietà</p>
+                    <p class="second-text">la previsione dei pericoli</p>
+                </div>
+                <div class="card">
+                    <p class="tip">altri nove sono comuni all’uomo e ai soli vertebrati superiori:</p>
+                    <p class="second-text">il senso dello spazio e del tempo</p>
+                    <p class="second-text">la memoria</p>
+                    <p class="second-text">il linguaggio</p>
+                    <p class="second-text">la capacità di costruire</p>
+                </div>
+                <div class="card">
+                    <p class="tip">mentre solo gli ultimi otto sono propri dell’essere umano in quanto tale</p>
+                    <p class="second-text">l’abilità comparativa</p>
+                    <p class="second-text">il talento poetico</p>
+                    <p class="second-text">il senso del comico</p>
+                    <p class="second-text">il senso morale e religioso-metafisico</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <h2>Lo Psicografo</h2>
+            <p>
+                Negli USA nel 1931, Lavery e White crearono lo "psicografo", una macchina costituita da un casco
+                metallico collegato ad un contenitore che stampava giudizi su 32 facoltà mentali, classificate con un
+                punteggio da 1 a 5. Il punteggio veniva ottenuto dal contatto delle sonde del casco con le varie
+                superfici del cranio, e alla fine si otteneva una valutazione personalizzata grazie alla grande varietà
+                di combinazioni di giudizi. Nonostante il grande successo iniziale e la ricchezza ottenuta dai
+                produttori, lo scetticismo intorno allo strumento crebbe nei successivi dieci anni, finché divenne utile
+                solo come pezzo da museo.
+            </p>
+        </div>
+        <div class="slide">
+            <h2>Uso ritenuto giusto, ma sbagliato della dottrina</h2>
+            <p>La frenologia, la teoria che sosteneva che i tratti caratteriali potessero essere rilevati tramite la
+                forma del cranio, fu utilizzata per vari scopi, come la scelta della carriera o del partner, e i
+                frenologi erano considerati in grado di prevedere il comportamento delle persone. Anche molte aziende
+                utilizzavano la frenologia per giudicare la moralità dei dipendenti sulla base della loro morfologia.
+            </p>
+        </div>
+    </section>
+    <section id="storia">
+        <div class="slide">
+            <h2>Le Prigioni Americane</h2>
+        </div>
+        <div class="slide">
+            <h2>L'isolamento</h2>
+            <p>Storicamente, le prigioni ne hanno fatto uso selettivamente per punire le persone che ritenevano
+                problematiche. Tuttavia, negli anni Ottanta, gli Stati Uniti hanno iniziato a usare l’isolamento in modo
+                nuovo e diffuso. In questi ambienti, le persone sono isolate in condizioni brutali e incredibilmente
+                rigide per 22-24 ore al giorno. Gli studiosi stimano che a un certo punto gli Stati Uniti tenevano
+                all’incirca 80 mila persone in isolamento.</p>
+        </div>
+        <div class="slide">
+            <h2>Una forma di tortura</h2>
+            <p>Le Nazioni Unite e altre autorità internazionali sostengono che l’isolamento prolungato può costituire
+                una tortura. Hanno spesso considerato come una forma di tortura qualsiasi misura che superi i trenta
+                giorni di isolamento. L'emendamento pene crudeli e inusitate tenta di ridurre la brutalità delle pene e
+                di limitare ciò che lo Stato può fare alle persone che infrangono le leggi. </p>
+        </div>
+        <div class="slide">
+            <h2>Un baco nell’eccezionalità Usa</h2>
+            <p>Una ragione per cui gli americani ignorano gli orrori dell’isolamento risiede in questioni di identità
+                nazionale. Anche per i più ferrei critici della politica estera degli Stati Uniti, sembrava
+                inaccettabile pensare che avvenissero torture nelle prigioni. Nel XIX secolo alle prigioni del Sud in
+                tutti gli Stati Uniti, fino alla prigione di Attica nel 1971, i detenuti sono sempre stati soggetti ad
+                abusi e torture.</p>
+        </div>
+        <div class="slide">
+            <h2>Una svolta attesa invano</h2>
+            <p>Molti speravano che la piaga del coronavirus potesse portare le persone a ripensare le nostre politiche
+                penali punitive. Molti americani hanno la percezione che il crimine violento stia aumentando. Questa
+                percezione è di cattivo auspicio per i tentativi di ridurre la popolazione carceraria e porre fine
+                all’isolamento. </p>
+        </div>
+        <div class="slide">
+            <h2>Storia</h2>
+            <p>I detenuti per reati connessi al traffico di stupefacenti erano circa il 21% nel 2004 nelle prigioni
+                statali e circa il 55% nelle prigioni federali. Secondo un rapporto del Dipartimento di Giustizia USA
+                del 2006, oltre 7,2 milioni di persone erano in quel momento in prigione o sotto varie forme di
+                custodia, ossia circa 1 americano su 32. Nel 2009 il tasso di incremento annuo della popolazione
+                carceraria è stato dello 0,2%. </p>
+        </div>
+        <div class="slide">
+            <h2>Statistiche</h2>
+            <p>Con meno del 5% della popolazione mondiale, gli USA hanno circa il 25% della popolazione carceraria
+                mondiale. Secondo l'ICPR, di questi 7,2 milioni, 2,3 sono effettivamente in prigione. Al secondo posto
+                nella classifica mondiale viene la Repubblica Popolare Cinese con 1,6 milioni, ma con una popolazione
+                complessiva oltre quattro volte maggiore di quella degli USA. Gli USA detengono il primato anche per il
+                più alto tasso di incarcerazione: circa 751 persone in prigione per ogni centomila abitanti. </p>
+        </div>
+        <div class="slide">
+            <h2>Effetti sociali</h2>
+            <p>Nel 1995 il governo aveva stanziato oltre 5 miliardi di dollari per la costruzione di nuove prigioni. Da
+                notare che ad ogni cento milioni di dollari spesi in costruzione, corrispondono 1,6 miliardi per costi
+                operativi nei successivi trenta anni. Il costo annuo per l'erario è stimato sui 60 miliardi di dollari,
+                mentre ogni prigioniero costa circa trentamila dollari per anno. </p>
+        </div>
+    </section>
+    <section id="affaire">
+        <div class="slide">
+            <h2>Affaire Dreyfus</h2>
+        </div>
+        <div class="slide">
+            <h2>Chi era Dreyfus?</h2>
+            <p>Alfred Dreyfus era un ufficiale nato nel 1859 in Alsazia, regione della Francia orientale al confine con
+                la Germania.Era di religione ebraica e proveniva da una famiglia borghese. </p>
+        </div>
+        <div class="slide">
+            <h2>La vita militare di Dreyfus</h2>
+            <p>La sua biografia è contrassegnata dalla scelta di dedicarsi professionalmente alla vita militare: dopo
+                la laurea conseguita al Politecnico, entrò nell’esercito nel 1880. Due anni dopo ottenne il brevetto di
+                ufficiale di Stato Maggiore e nel 1893, l’anno prima dell’inizio della vicenda giudiziaria della quale
+                fu vittima, ricoprì l’incarico di addetto al Corpo di Stato Maggiore.</p>
+        </div>
+        <div class="slide">
+            <h2>L’origine dell’Affaire</h2>
+            <p> 1894 un ufficiale francese anonimo dichiarava di inviare dei documenti militari inerenti la sicurezza
+                nazionale; questi frammenti di carta rivelavano dunque la presenza di una spia francese che,
+                dall’interno dell’esercito stesso, tramava contro il proprio Paese a favore invece della Germania. </p>
+        </div>
+        <div class="slide">
+            <h2>L’accusa a Dreyfus</h2>
+            <p>un ufficiale francese anonimo dichiarava di inviare dei documenti militari inerenti la sicurezza
+                nazionale; questi frammenti di carta rivelavano dunque la presenza di una spia francese che,
+                dall’interno dell’esercito stesso, tramava contro il proprio Paese a favore invece della Germania. </p>
+        </div>
+        <div class="slide">
+            <h2>Sentenza</h2>
+            <p>22 dicembre 1894 venne pronunciata la sentenza: il consiglio di guerra dichiarò Dreyfus colpevole di aver
+                consegnato documenti relativi alla sicurezza nazionale a uno Stato straniero e dunque reo di alto
+                tradimento. L’ufficiale subì quindi l’umiliazione della degradazione e fu condannato alla deportazione
+                perpetua presso l’Isola del Diavolo.</p>
+        </div>
+        <div class="slide">
+            <h2>Proseguimento della vicenda</h2>
+            <p>Si formarono due fazioni contrapposte: i dreyfusardi e gli antidreyfusardi. da un lato i sostenitori
+                della colpevolezza di Dreyfus, principalmente antisemiti, clericali, reazionari e nazionalisti
+                antisemiti, e dall’altro, repubblicani, socialisti – tra i quali in particolare Jean Jaurés – e
+                radicali, convinti invece dell’innocenza dell’ufficiale di origine alsaziana e della messa in atto di un
+                uso politico della giustizia, basato sul pregiudizio antisemita e volto alla reazione e alla
+                conservazione del potere.  </p>
+        </div>
+        <div class="slide">
+            <h2>Zola, in difesa di Dreyfus</h2>
+            <p>Il 13 gennaio 1898 Émile Zola, intellettuale democratico, letterato e autore di celebri
+                opere, pubblicò sul giornale Aurore un testo in difesa di Dreyfus (il noto J’accuse, traducibile in
+                italiano con Io accuso) nel quale accusava l’ambiente militare e reazionario di aver ordito un complotto
+                a danno di un ufficiale innocente.</p>
+        </div>
+        <div class="slide">
+            <h2>Il suicidio di Henry</h2>
+            <p>Nell’agosto del 1898 un gesto estremo portò a un parziale ripensamento del caso: il tenente colonnello
+                Henry, che aveva confessato di aver falsificato alcuni documenti così da poter danneggiare Dreyfus, si
+                suicidò. Nel medesimo periodo, alcuni vertici militari si dimisero.</p>
+        </div>
+        <div class="slide">
+            <h2>Il processo di Rennes e la grazia</h2>
+            <p>Del 1899 è l’esito di una nuova inchiesta: il consiglio di guerra, riunitosi nella città di Rennes,
+                condannò Dreyfus a dieci anni di prigione. In seguito a tale sentenza, l’accusato ottenne la grazia da
+                parte del Presidente della Repubblica Émile Loubet, figura che aveva voluto una revisione del processo. 
+            </p>
+        </div>
+        <div class="slide">
+            <h2>Reintegrazione nell’esercito</h2>
+            <p>Del 1902 è l’avvio di un’altra inchiesta. L’esito, a cui si giunse nel 1906, comportò l’annullamento
+                della prima sentenza. Dreyfus venne allora reintegrato nell’esercito. In seguito fu poi promosso al
+                grado di tenente colonnello Dreyfus nel 1901 aveva anche pubblicato un testo di memoria autobiografica,
+                intitolato Cinq années de ma vie.  </p>
+        </div>
+        <div class="slide">
+            <h2>La morte</h2>
+            <p>Dreyfus morì nella capitale francese nel 1935.</p>
+        </div>
+    </section>
+    <section id="confutazione">
+        <div class="slide">
+            <h2>Confutazione</h2>
+        </div>
+        <div class="slide">
+            <h2>1945 Post-WWII, Inizio del rifiuto del razzismo scientifico</h2>
+            <p>Solo dopo la Seconda guerra mondiale incominciarono i primi processi e i prime opposizioni politiche alle
+                teorie del razzismo scientifico</p>
+            <!-- TODO: (INSERIRE TIMELINE CON TUTTI GLI ARGOMENTI AFFRONTATI) -->
+        </div>
+        <div class="slide">
+            <h2>1954 Processo famiglia Brown contro scuola Board Education</h2>
+            <p>Linda Brown doveva percorrere un miglio ogni giorno per raggiungere la sua scuola per non bianchi, anche
+                se viveva vicino a una scuola per bianchi. I Brown tentarono di iscrivere Linda alla scuola dei bianchi
+                ma furono respinti, così come molte altre famiglie afroamericane. In Brown v. Board of Education, un
+                gruppo di 13 genitori, tra cui il padre di Linda, Oliver Brown, ha citato in giudizio il consiglio
+                scolastico di Topeka a nome dei loro 20 figli presso il tribunale distrettuale federale, sostenendo che
+                la segregazione li privava della pari protezione delle leggi ai sensi del Quattordicesimo emendamento
+            </p>
+            <!-- TODO: (INSERIRE ENUNCIATO DEL QUATTORDICESIMO EMENDAMENTO). (aggiungere citazioni varie)  -->
+        </div>
+        <div class="slide">
+            <h2>Dichiarazioni dell’UNESCO</h2>
+            <p>L’UNESCO nel 1950 rilascia il primo documento che nega ufficialmente la correlazione tra razza e
+                caratteristiche psicologiche, intellettive e comportamentali:<br><i>
+                    «Una razza, dal punto di vista biologico, può essere definita come uno dei gruppi di popolazioni che
+                    costituiscono la specie Homo sapiens. Questi gruppi sono in grado di ibridarsi l'uno con l'altro,
+                    ma, in
+                    virtù delle barriere isolanti che in passato li tenevano più o meno separati, manifestano alcune
+                    differenze fisiche a causa delle loro diverse storie biologiche. In breve, il termine "razza" indica
+                    un
+                    gruppo umano caratterizzato da alcune concentrazioni, relative a frequenza e distribuzione, di
+                    particelle ereditarie (geni) o caratteri fisici, che appaiono, oscillano, e spesso scompaiono nel
+                    corso
+                    del tempo a causa dell'isolamento geografico.<br>
+                    In materia di razze, le uniche caratteristiche che gli antropologi possono efficacemente utilizzare
+                    come
+                    base per le classificazioni sono quelle fisiche e fisiologiche.<br>
+                    In base alle conoscenze attuali non vi è alcuna prova che i gruppi dell'umanità differiscano nelle
+                    loro
+                    caratteristiche mentali innate, riguardo all'intelligenza o al comportamento.<br>
+                    Dichiarazione sulla razza, Parigi, UNESCO, 1950»</i>
+                Questo documento sarà poi seguito dalla <a>“Declaration on Race and Racial Prejudice”</a></p>
+        </div>
+        <div class="slide">
+            <h2>Nelson Mandela e la fine dell’Apartheid</h2>
+            <p>L'apartheid era un sistema di segregazione razziale legalizzato in Sudafrica che ha causato gravi
+                ingiustizie e discriminazioni contro la popolazione nera del paese.
+                <br>
+                Nel 1990, dopo decenni di pressioni internazionali e lotte interne, il presidente sudafricano Frederik
+                de Klerk ha annunciato la fine dell'apartheid e il rilascio di Nelson Mandela, leader dell'African
+                National Congress (ANC), che era stato incarcerato per 27 anni per il suo attivismo contro il regime
+                razzista.
+                <br>
+                Mandela ha lavorato per promuovere la riconciliazione e la pace tra i sudafricani di tutte le razze, e
+                ha svolto un ruolo importante nella transizione del paese verso la democrazia. Nel 1994, Sudafrica ha
+                tenuto le sue prime elezioni democratiche multirazziali, in cui Mandela è stato eletto presidente.
+                <br>
+                Il suo mandato è stato caratterizzato da un forte impegno per la giustizia sociale, la riconciliazione e
+                la costruzione di un'identità nazionale sudafricana inclusiva. Mandela ha anche lavorato per promuovere
+                i diritti delle donne e delle minoranze sessuali.
+                <br>
+                La fine dell'apartheid e l'ascesa di Mandela al potere sono stati un momento storico per il Sudafrica e
+                per il mondo intero. Sono stati fatti enormi progressi, ma ci sono ancora sfide importanti da
+                affrontare, tra cui l'ineguaglianza economica e la lotta contro la discriminazione.
+            </p>
+        </div>
+    </section>
+</body>
+<footer>
+    <p>Progetto a cura di: Andrea Venditti, Bo Sun, Giosuè Davide Tieri, Guglielmo Vicinanza e Mariam El Wekil.</p>
+    <p>5Ai, IIS Giorgi-Woolf</p>
+</footer>
+</html>

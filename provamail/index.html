@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/052423e961.js" crossorigin="anonymous"></script>
+    <title>Invio Mail</title>
+</head>
+<body>
+    <h1>Nuovo Messaggio</h1>
+    <form action="mail.php" method="post">
+        <table>
+            <tr>
+                <td class="field">
+                    <input type="text" name="NomeMittente" placeholder="Nome del mittente">
+                </td>
+            </tr>
+            <tr>
+                <td class="field">
+                    <input type="email" name="EmailMittente" placeholder="Email mittente">
+                </td>
+            </tr>
+            <tr>
+                <td class="field">
+                    <input type="text" name="NomeDestinatario" placeholder="Nome del destinatario">
+                </td>
+            </tr>
+            <tr>
+                <td class="field">
+                    <input type="email" name="EmailDestinatario" placeholder="Indirizzo mail destinatario">
+                </td>
+            </tr>
+            <tr>
+                <td class="field">         
+                    <input type="text" name="Oggetto" placeholder="Oggetto">
+                </td>
+            </tr>
+            <tr>
+                <td class="field">
+                    <table>
+                        <tr>
+                            <td>Roma</td>
+                            <td>Milano</td>
+                            <td>Napoli</td>
+                            <td>Palermo</td>
+                            <td>Firenze</td>
+                            <td>Bologna</td>
+                        </tr>
+                        <tr>
+                            <td><img src="img/q1.jpg" alt="Roma" height="70px" width="70px"></td>
+                            <td><img src="img/q2.jpg" alt="Milano" height="70px" width="70px"></td>
+                            <td><img src="img/q3.jpg" alt="Napoli" height="70px" width="70px"></td>
+                            <td><img src="img/q4.jpg" alt="Palermo" height="70px" width="70px"></td>
+                            <td><img src="img/q5.jpg" alt="Firenze" height="70px" width="70px"></td>
+                            <td><img src="img/q6.jpg" alt="Bolgona" height="70px" width="70px"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="Immagine" value="1"></td>
+                            <td><input type="radio" name="Immagine" value="2"></td>
+                            <td><input type="radio" name="Immagine" value="3"></td>
+                            <td><input type="radio" name="Immagine" value="4"></td>
+                            <td><input type="radio" name="Immagine" value="5"></td>
+                            <td><input type="radio" name="Immagine" value="6"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="field">         
+                    <textarea name="Messaggio" placeholder="Messaggio"></textarea>
+                </td>
+            </tr>            
+            <tr>
+                <td class="field">
+                    <button type="submit">
+                        <i class="fa-solid fa-paper-plane-top"></i> Invia
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,25 +1,204 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
-<title>Conversione XOR</title>
+	<meta charset="utf-8">
+	<script src="script.js" defer></script>
+	<script src="https://kit.fontawesome.com/052423e961.js" crossorigin="anonymous"></script>
+	<title>CriDec</title>
+	<style>
+		:root
+		{
+			--mainColor: rgb(0, 185, 185);
+		}
+
+		table
+		{
+			margin: collapse;
+			margin-left: auto;
+			margin-right: auto;
+			
+			margin-top: 10%;
+			border: none;
+		}
+
+		tr, td, th
+		{
+			margin: collapse;
+			border: none;
+			padding: 0;
+		}
+
+		.io
+		{
+			margin: 0;
+			position: relative;
+			width: 500px;
+		}
+		
+		.io input
+		{
+			color: var(--mainColor);
+		}
+
+		.io textarea
+		{
+			position: relative;
+			width: 480px;
+			border: none;
+			font-family: Calibri;
+			font-size: 48px;
+			margin: 0;
+			padding: 10px;
+			resize: none;
+			color: darkgray;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			z-index: 1;
+			transition: 0.4s;
+		}
+
+		.io-encode
+		{
+			margin: 0;
+			position: relative;
+			width: 500px;
+		}
+
+		.io-encode select 
+		{
+			position: relative;
+			appearance: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			width: 100%;
+			outline: none;
+			font-family: Calibri;
+			font-size: 36px;
+			margin: 0;
+			border: none;
+			padding: 10px;
+			resize: none;
+			color: darkgray;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			z-index: 1;
+			transition: 0.4s;
+		}
+
+		.io-encode select::after 
+		{
+			content: "";
+			justify-self: end;
+			width: 0.8em;
+			height: 0.5em;
+		}
+
+		*:focus
+		{
+			outline: none;
+		}
+
+		.io textarea:hover, .io input#key1:hover, .io input#key1:focus, .io input#key2:hover,.io-encode select:hover, button:hover
+		{
+			outline: none;
+			z-index: 0;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 0 10px var(--mainColor);
+			transition-timing-function: ease;
+			transition: 0.4s;
+		}
+
+		button
+		{
+			border: none;
+			padding-right: 10px;
+			padding-left: 10px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			background-color:white ;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+
+		i{
+			color: var(--mainColor);
+		}
+
+		.io textarea::placeholder, .io-encode select 
+		{
+			color: rgba(0, 151, 151, 0.5);
+		}
+
+		#key1, #key2
+		{
+			width: 100px;
+			border: none;
+			padding-right: 10px;
+			padding-left: 10px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			font-size: 20px;
+			background-color:white ;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			visibility: hidden;
+		}
+	</style>
 </head>
 <body>
 	<form>
 		<table>
 			<tr>
 				<td>
-					<input type="text" name="clear" id="testochiaro" placeholder="Testo in chiaro">
+					<div class="io-encode">
+						<select id="encode1">
+							<option value=0>Testo in chiaro</option>
+							<option value=1>Cifrario di Cesare</option>
+							<option value=2>Atbash</option>
+							<option value=3>Scacchiera di Polibio</option>
+							<option value=4>Cifrario di Vigenère</option>
+							<option value=5>Cifrario a trasposizione</option>
+							<option value=6>XOR</option>
+						</select>
+					</div>
 				</td>
 				<td>
-					<input type="text" name="clear" id="testocifrato" placeholder="Testo cifrato">
+					<button type="button" name="reverse" id="reverse-btn"><i class="fa-solid fa-arrow-right-arrow-left fa-2x"></i></button>
+				</td>
+				<td>
+					<div class="io-encode">
+						<select id="encode2">
+							<option value=0>Testo in chiaro</option>
+							<option value=1>Cifrario di Cesare</option>
+							<option value=2>Atbash</option>
+							<option value=3>Scacchiera di Polibio</option>
+							<option value=4>Cifrario di Vigenère</option>
+							<option value=5>Cifrario a trasposizione</option>
+							<option value=6>XOR</option>
+						</select>
+					</div>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<input type="number" name="key" id="key" placeholder="Chiave">
+					<div class="io">
+						<textarea name="leftText" id="io1" placeholder=""></textarea>
+					</div>
+				</td>
+				<td>
+				</td>
+				<td>
+					<div class="io">
+						<textarea name="rightText" id="io2" placeholder=""></textarea>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="io">
+						<input type="text" name="leftKey" id="key1" placeholder="Chiave:"></input>
+					</div>
+				</td>
+				<td></td>
+				<td>
+					<div class="io">
+						<input type="text" name="rightKey" id="key2" placeholder="Chiave:"></input>
+					</div>
 				</td>
 			</tr>
 		</table>

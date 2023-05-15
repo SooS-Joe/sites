@@ -1,52 +1,116 @@
-body {
-    padding: 0;
-    border: 0;
-    margin: 0;   
-    background-color: rgb(36, 36, 36);
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
 
-.titolo {
-    font-family: sans-serif;
-    font-size: 50px;
-    color: rgb(1, 1, 1);
-    background-color: rgb(200, 1, 1);
+*{
     padding: 0;
     border: 0;
     margin: 0;
 }
 
-.sottotitolo {
-    font-family: "Cambria";
-    font-size: 20px;
-    color: white;
-    background-color: black;
-    padding: 0;
-    border: 0;
-    margin: 0;
+a:hover ~ .underline {
+    transform: scaleX(1);
 }
 
-a {
-    text-decoration: none;
-    color: black;
-}
-
-
-a:not(hover):visited {
-    text-decoration: none;
-    color: rgb(255, 166, 0);
-}
-
-a:visited {
-    text-decoration: none;
-    color: rgb(255, 50, 0);
+body {   
+    background-color: #171717;
 }
 
 .navbar {
-    text-align: left;
+    padding: 0;
+    border: 0;
+    margin: 0;   
+    background-color: white;
+    box-shadow: 0 0px 8px 5px rgba(0, 0, 0, 0.4), 0 0px 20px 5px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar ul{
+    margin: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
 }
 
 .navbar ul li {
     display: inline;
-    border: 10px;
-    padding: 33px;
+}
+
+a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
+}
+
+a:not(hover):visited {
+    text-decoration: none;
+    color: #860d0d;
+}
+
+a:after {    
+    position: relative;
+    background: none repeat scroll 0 0 transparent;
+    bottom: -4px;
+    left: 50%;
+    content: "";
+    display: block;
+    height: 2px;
+    position: relative;
+    background: #860d0d;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+a:hover:after { 
+    width: 100%; 
+    left: 0; 
+}
+
+.stroke{
+    width: 100px;
+    height: 100px;
+}
+
+
+a:visited {
+    text-decoration: none;
+    color: #860d0d;
+}
+
+.titolo {
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 10vh;
+    color: white;
+}
+
+.sottotitolo {
+    font-family: 'Roboto Slab', sans-serif;
+    text-align: center;
+    font-size: 7vh;
+    color: #860d0d;
+}
+
+div.slide {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0 5vw;
+    border: 0;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+div.slide>* {
+    margin: 0;
 }

@@ -11,12 +11,14 @@
 <body>
     <?php require "connection.php"?>
     <div class="navbar">
-        <h1><i class="fa-solid fa-envelope"></i> NewsBetter</h1>
-        <a href="login.php" class="login-btn"><span>LogIn</span></a>
-        <a href="signup.php" class="signup-btn">SignUp</a>
+        <a href="/guestbook/" class="title"><h1><i class="fa-solid fa-envelope"></i> NewsBetter</h1></a>
+        <div class="buttons">
+            <a class="nav-btn" href="login.php">LogIn</a>
+            <a class="nav-btn" href="signup.php">SignUp</a>
+        </div>
     </div>
     <div class="articoli">
-        <div class="cards">
+            <h1>Articoli Recenti</h1>
             <?php
             $sql = "SELECT guestbook_newsletters.Titolo AS Titolo, guestbook_newsletters.MessaggioNews AS Testo, guestbook_administrators.Nome AS Nome, guestbook_administrators.Cognome AS Cognome 
             FROM guestbook_newsletters INNER JOIN guestbook_administrators ON guestbook_newsletters.UserAdmin = guestbook_administrators.UserAdmin;";
@@ -27,13 +29,11 @@
                     echo "        
                     <div class = 'card'>
                         <h2>$row[Titolo]</h2>
-                        <p>$row[Testo]</p>
-                        <p>Scritto da: $row[Nome] $row[Cognome]</p>
+                        <p>By: $row[Nome] $row[Cognome]</p>
                     </div>";
                 }
             }
             ?>
-        </div>
     </div>
     <footer>
         <p>Creato da Giosuè Davide Tieri, 5Ai</p>

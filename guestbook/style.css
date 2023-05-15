@@ -1,23 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap');
-:root{
+
+:root {
     font-family: 'Roboto', sans-serif;
+    --maincolor: #3a0ca3;
 }
 
 body {
     padding: 0;
     margin: 0;
     border: 0;
+    min-height: 100vh;
 }
 
-.navbar{
-    display: flex;
-    align-items: center;
-    border-bottom: 2px solid black;
-    margin-left: auto;
-    margin-right: auto;
+.navbar {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    background-color: white;
     box-shadow: 0 0px 8px 5px rgba(0, 0, 0, 0.4), 0 0px 20px 5px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.navbar .title {
+    text-decoration: none;
+    background: -webkit-linear-gradient(bottom right, var(--maincolor), #8d0bad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .navbar h1 {
@@ -28,58 +40,99 @@ body {
     font-size: 40px;
 }
 
-.login-btn {
+.buttons {
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.nav-btn[href="login.php"] {
+    --color: #0b59ad;
+}
+
+.nav-btn {
+    --color: #5c0bad;
+    font-family: inherit;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    width: 8em;
+    height: 2.6em;
+    line-height: 2.5em;
+    margin: 10px;
     position: relative;
     overflow: hidden;
-    height: 3rem;
-    padding: 0 2rem;
-    border-radius: 0.5rem;
-    background: #3d3a4e;
-    background-size: 400%;
-    color: #fff;
-    border: none;
-  }
-  
-  .login-btn:hover::before {
-    transform: scaleX(1);
-  }
-  
-  .login-btn>* {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    border: 2px solid var(--color);
+    transition: color .5s;
     z-index: 1;
-  }
-  
-  .login-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: scaleX(0);
-    transform-origin: 0 50%;
-    width: 100%;
-    height: inherit;
-    border-radius: inherit;
-    background: linear-gradient(
-      82.3deg,
-      rgba(150, 93, 233, 1) 10.8%,
-      rgba(99, 88, 238, 1) 94.3%
-    );
-    transition: all 0.475s;
-  }
+    font-size: 17px;
+    border-radius: 10px;
+    font-weight: 500;
+    color: var(--color);
+}
 
-div.cards {
-    padding-top: 3vh;
+.nav-btn:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: var(--color);
+    height: 150px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.nav-btn:hover {
+    color: #fff;
+}
+
+.nav-btn[href="login.php"]:before {
+    top: 100%;
+    right: 100%;
+    transition: all .7s;
+}
+
+.nav-btn[href="signup.php"]:before {
+    top: 100%;
+    left: 100%;
+    transition: all .7s;
+}
+
+.nav-btn[href="login.php"]:hover:before {
+    top: -30px;
+    right: -30px;
+}
+
+.nav-btn[href="signup.php"]:hover:before {
+    top: -30px;
+    left: -30px;
+}
+
+.nav-btn:active:before {
+    background: var(--maincolor);
+    transition: 0s;
+}
+
+div.articoli {
+    color: white;
+    width: 90vw;
+    margin: 5vw;
+    background-color: var(--maincolor);
+    box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    height: fit-content;
     display: inline-block;
     justify-content: center;
     align-items: center;
     text-align: center;
+    overflow: hidden;
     gap: 5vw;
 }
 
-div.cards>.card {
+div.articoli>.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 20px;
     background-color: white;
     box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
@@ -92,7 +145,151 @@ div.cards>.card {
     z-index: 2;
 }
 
-div.card>h2{
+div.card>h2 {
+    font-size: 40px;
     padding: 10px;
     text-align: left;
+}
+
+/*FORM STYLE*/
+form {
+    box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 50px;
+    padding: 50px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 400ms;
+}
+
+form h1 {
+    color: var(--maincolor);
+}
+
+/*CHECKBOX STYLE*/
+.check {
+    cursor: pointer;
+    position: relative;
+    margin: auto;
+    width: 18px;
+    height: 18px;
+    -webkit-tap-highlight-color: transparent;
+    transform: translate3d(0, 0, 0);
+}
+
+.check:before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(34, 50, 84, 0.03);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.check svg {
+    position: relative;
+    z-index: 1;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #c8ccd4;
+    stroke-width: 1.5;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.2s ease;
+}
+
+.check svg path {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 0;
+}
+
+.check svg polyline {
+    stroke-dasharray: 22;
+    stroke-dashoffset: 66;
+}
+
+.check:hover:before {
+    opacity: 1;
+    
+}
+
+.check:hover svg {
+    stroke: var(--maincolor);
+}
+
+#cbx:checked+.check svg {
+    stroke: var(--maincolor);
+}
+
+#cbx:checked+.check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#cbx:checked+.check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+/*INPUT STYLE*/
+
+.input-group {
+    display: flex;
+}
+
+.cool-input {
+    position: relative;
+    margin: 20px;
+}
+
+.input {
+    border: solid 2px #000000;
+    border-radius: 10px;
+    background: none;
+    padding: 1rem;
+    font-size: 1rem;
+    color: black;
+    transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.user-label {
+    position: absolute;
+    left: 15px;
+    color: #000000;
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input:focus,
+input:valid {
+    outline: none;
+    border: 2px solid var(--maincolor);
+}
+
+.cool-input .input:focus~label,
+.cool-input input:valid~label {
+    transform: translateY(-50%) scale(0.8);
+    background-color: white;
+    padding: 0 .2em;
+    color: var(--maincolor);
+}
+
+.cool-input>input[type="submit"] {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
