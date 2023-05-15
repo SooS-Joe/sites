@@ -16,8 +16,8 @@
             <a class="nav-btn" href="login.php">LogIn</a>
         </div>
     </div>
-    <form action="convalidation.php" method="post">
-        <h1>Sing Up</h1>
+    <form action="signup.php" method="post">
+        <h1>Sign Up</h1>
         <div class="input-group">
             <div class="cool-input">
                 <input required="" type="text" name="name" autocomplete="off" class="input">
@@ -37,21 +37,32 @@
             <label class="user-label">Password</label>
         </div>
         <div class="cool-input">
-            <input required="" type="password" name="pword" autocomplete="off" class="input">
-            <label class="user-label">Ripeti Password</label>
+            <input required="" type="password" name="cpword" autocomplete="off" class="input">
+            <label class="user-label">Conferma Password</label>
         </div>
         <div class="container">
-        <input type="checkbox" id="cbx" style="display: none;">
-        <label for="cbx" class="check">
-            <svg width="18px" height="18px" viewBox="0 0 18 18">
-                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
-                <polyline points="1 9 7 14 15 4"></polyline>
-            </svg>
+            <input type="checkbox" id="cbx" style="display: none;">
+            <label for="cbx" class="check">
+                <svg width="18px" height="18px" viewBox="0 0 18 18">
+                    <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                    <polyline points="1 9 7 14 15 4"></polyline>
+                </svg>
+            </label>
             Voglio ricevere aggiornamenti sui nuovi post
-        </label>
-        <div class="cool-input" style="width: fit-content;">
-            <input  type="submit" value="Sing Up" autocomplete="off" class="input">
+        </div>
+        <div class="buttons">
+            <button class="nav-btn" type="submit" name="sent">Registrati</button>
         </div>
     </form>
+    <div class="result">
+        <p>
+            <?php
+            if(isset($_POST['sent']))
+            {
+
+            }
+            ?>
+        </p>
+    </div>
 </body>
 </html>

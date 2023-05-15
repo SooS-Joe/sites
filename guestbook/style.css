@@ -84,13 +84,14 @@ body {
     color: #fff;
 }
 
+
 .nav-btn[href="login.php"]:before {
     top: 100%;
     right: 100%;
     transition: all .7s;
 }
 
-.nav-btn[href="signup.php"]:before {
+.nav-btn:before, .nav-btn[href="signup.php"]:before {
     top: 100%;
     left: 100%;
     transition: all .7s;
@@ -101,7 +102,7 @@ body {
     right: -30px;
 }
 
-.nav-btn[href="signup.php"]:hover:before {
+.nav-btn:hover:before, .nav-btn[href="signup.php"]:hover:before {
     top: -30px;
     left: -30px;
 }
@@ -132,12 +133,11 @@ div.articoli>.card {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     margin: 20px;
     background-color: white;
     box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
     height: 250px;
-    width: 500px;
+    width: 400px;
     border-radius: 10px;
     color: black;
     cursor: pointer;
@@ -146,9 +146,16 @@ div.articoli>.card {
 }
 
 div.card>h2 {
+    width: 75%;
     font-size: 40px;
     padding: 10px;
     text-align: left;
+}
+div.card>p {
+    width: 50%;
+    padding: 10px;
+    align-self: end;
+    text-align: right;
 }
 
 /*FORM STYLE*/
@@ -178,8 +185,8 @@ form h1 {
     cursor: pointer;
     position: relative;
     margin: auto;
-    width: 18px;
-    height: 18px;
+    width: 25px;
+    height: 25px;
     -webkit-tap-highlight-color: transparent;
     transform: translate3d(0, 0, 0);
 }
@@ -287,9 +294,10 @@ input:valid {
     color: var(--maincolor);
 }
 
-.cool-input>input[type="submit"] {
+button[type="submit"] {
     position: relative;
     display: block;
+    background-color: white;
     margin-left: auto;
     margin-right: auto;
 }
