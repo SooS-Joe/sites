@@ -50,13 +50,20 @@ body {
     --color: #0b59ad;
 }
 
+.nav-btn[href="signup.php"] {
+    --color: #5c0bad;
+}
+
+.nav-btn[href="logout.php"] {
+    --color: #ad0b0b;
+}
+
 .nav-btn[type="submit"]
 {
     --color: var(--maincolor)
 }
 
 .nav-btn {
-    --color: #5c0bad;
     font-family: inherit;
     display: inline-block;
     text-align: center;
@@ -97,7 +104,7 @@ body {
     transition: all .7s;
 }
 
-.nav-btn:before, .nav-btn[href="signup.php"]:before {
+.nav-btn[href="logout.php"]:before, .nav-btn[type="submit"]:before, .nav-btn[href="signup.php"]:before {
     top: 100%;
     left: 100%;
     transition: all .7s;
@@ -108,7 +115,7 @@ body {
     right: -30px;
 }
 
-.nav-btn:hover:before, .nav-btn[href="signup.php"]:hover:before {
+.nav-btn[href="logout.php"]:hover:before, .nav-btn[type="submit"]:hover:before, .nav-btn[href="signup.php"]:hover:before {
     top: -30px;
     left: -30px;
 }
@@ -323,25 +330,15 @@ button[type="submit"] {
 /*RESULT STYLE*/
 
 .result{
-    position:relative;
-    top: 0px;
-    box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: fit-content;
-    background-color: white;
-    border-radius: 20px;
-    margin-top: 20px;
-    padding: 25px 40px;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
     transition: 400ms;
     font-size: 1rem;
 }
 
-.result:empty{
-    display: none;
+/*NOT VERIFY ADVISE STYLE*/
+.advise {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    background-color: rgba(255, 217, 0, 0.5);
 }

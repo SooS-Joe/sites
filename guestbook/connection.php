@@ -1,4 +1,5 @@
 <?php
+$altervista = false;
 function connessione($hostname, $username, $password, $database)
 {
     $connect = new mysqli($hostname, $username, $password, $database);
@@ -8,5 +9,10 @@ function connessione($hostname, $username, $password, $database)
     }
     return ($connect);
 }
-$connect = connessione("localhost", "root", "", "guestbook");
+$connect = null;
+if($altervista)
+    $connect = connessione("localhost", "giosuedavidetieri", "", "my_giosuedavidetieri");
+else
+    $connect = connessione("localhost", "root", "", "Guestbook");
+
 ?>

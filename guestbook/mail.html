@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <script src='https://kit.fontawesome.com/052423e961.js' crossorigin='anonymous'></script>
+    <title>Benvenuto</title>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+
+        :root {
+            font-family: 'Roboto', sans-serif;
+            --maincolor: #3a0ca3;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            border: 0;
+            min-height: 100vh;
+        }
+        .titolo {
+            padding: 0;
+            border: 0;
+            margin: 0;    
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .titolo h1 {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Roboto Slab', sans-serif;
+            font-weight: 900;
+            font-size: 3rem;
+        }
+
+        .titolo a {
+            text-decoration: none;
+            background: -webkit-linear-gradient(bottom right, var(--maincolor), #8d0bad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        div.mail-content {
+            font-weight: 500;
+            box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: fit-content;
+            background-color: white;
+            border-radius: 20px;
+            margin-top: 50px;
+            padding: 50px;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            transition: 400ms;
+        }
+
+        div.mail-content h1 {
+            color: var(--maincolor);
+        }
+
+        div.mail-content p {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+    </style>
+    <div class='titolo'>
+        <h1>Benvenut* in <a href='https://giosuedavidetieri.altervista.org/guestbook'><i class='fa-solid fa-envelope'></i> NewsBetter</a>!</h1>
+    </div>
+    <div class='mail-content'>
+        <p>Ciao '.$_POST['name'].' '.$_POST['surname'].'</p>
+        <p>Ti diamo il benvenuto nella nostra newsletter!<br>
+        Conferma il tuo account al seguente <a href='https://giosuedavidetieri.altervista.org/guestbook/verify.php?code=$activationCode'>link</a>.<br></p>
+        <p>Saluti dallo staff di NewsBetter!</p>
+    </div>
+</body>
+</html>

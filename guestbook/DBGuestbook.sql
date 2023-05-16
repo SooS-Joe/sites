@@ -1,19 +1,17 @@
 CREATE TABLE guestbook_administrators(
-    UserAdmin VARCHAR(32) PRIMARY KEY NOT NULL,
-    Nome VARCHAR(32) NOT NULL,
-    Cognome VARCHAR(32) NOT NULL,
-    Email VARCHAR(64) NOT NULL,
-    Pword CHAR(60) NOT NULL
+    UserID INT NOT NULL,
+    FOREIGN KEY(UserID) REFERENCES guestbook_users(ID)
 );
 
 CREATE TABLE guestbook_users(
     ID INT PRIMARY KEY AUTO_INCREMENT,
+    Username VARCHAR(32) NOT NULL UNIQUE,
     Nome VARCHAR(32) NOT NULL,
     Cognome VARCHAR(32) NOT NULL,
     Email VARCHAR(64) NOT NULL,
     Pword CHAR(60) NOT NULL,
     NewsOK BOOLEAN NOT NULL,
-    Attivo BOOLEAN NOT NULL
+    Attivo BOOLEAN NOT NULL,
 );
 
 CREATE TABLE guestbook_newsletters(
@@ -30,8 +28,8 @@ CREATE TABLE guestbook_sendednews(
     IDUser INT,
     DataInvio DATE,
     PRIMARY KEY(IDNewsletter, IDUser),
-    FOREIGN KEY(IDNewsletter) REFERENCES guestbook_newsletters(ID) ON DELETE SET NULL,
-    FOREIGN KEY(IDUser) REFERENCES guestbook_users(ID) ON DELETE SET NULL
+    FOREIGN KEY(IDNewsletter) REFERENCES guestbook_newsletters(ID) ON DELETE CASCADE,
+    FOREIGN KEY(IDUser) REFERENCES guestbook_users(ID) ON DELETE CASCADE
 );
 
 CREATE TABLE guestbook_comments(
